@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amaumo Winstone Were – Portfolio</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000; /* Fallback for black background */
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a1a1a' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6zm30 18v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM18 6v-4h-2v4h-4v2h4v4h2V6h4V4h-4zm0 28v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM18 18v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM48 6v-4h-2v4h-4v2h4v4h2V6h4V4h-4zm0 28v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-16v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM0 18v-4h-2v4h-4v2h4v4h2v-4h4v-2H0zm0 16v-4H4v4H0v2h4v4h2v-4H0zm0 16v-4H4v4H0v2h4v4h2v-4H0zm30 0v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-16v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm-12 0v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm24-4V0h-2v4h-4v2h4v4h2V6h4V4h-4zm24 0V0h-2v4h-4v2h4v4h2V6h4V4h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed; /* Makes SVG background fixed while content scrolls */
+    }
+    .square-img {
+      border-radius: 0;
+      object-fit: cover; /* Ensures images fill their space nicely */
+      aspect-ratio: 1 / 1; /* Forces square aspect ratio */
+    }
+    .navbar-glass {
+      background-color: rgba(0, 0, 0, 0.3); /* Slightly less opaque */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px); /* Safari support */
+    }
+    .navbar-link.active {
+      color: #60A5FA; /* Tailwind blue-400 */
+      font-weight: bold;
+      border-bottom: 2px solid #60A5FA;
+    }
+    /* Section sizing for full-page effect */
+    .full-height-section {
+        min-height: calc(100vh - 80px); /* Adjust based on navbar height, and add some buffer */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4rem 0; /* Add padding for content spacing */
+    }
+    @media (max-width: 768px) {
+        .full-height-section {
+            min-height: auto; /* On smaller screens, don't force full height */
+            padding: 2rem 0;
+        }
+    }
+
+    .glass-card {
+        background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent white */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px); /* Safari support */
+        border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+    }
+
+    /* Adjust order for alternating layout */
+    .md\\:order-first { order: -1; }
+    .md\\:order-last { order: 1; }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+  <nav class="fixed top-0 w-full z-50 py-4 navbar-glass shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 flex justify-center space-x-8">
+      <a href="#experience" class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">Experience</a>
+      <a href="#education" class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">Education</a>
+      <a href="#projects" class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">Projects</a>
+      <a href="#certifications" class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">Certifications</a>
+      <a href="#skills" class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">Skills</a>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-4 py-12 pt-28"> <header class="text-center mb-12" data-aos="fade-down">
+      <h1 class="text-5xl font-bold uppercase tracking-wider rellax text-blue-400" data-rellax-speed="2">Amaumo Winstone Were</h1>
+      <p class="mt-4 text-lg rellax text-gray-300" data-rellax-speed="1">
+        <i data-lucide="mail" class="inline-block mr-2 align-middle"></i>stoniedev@gmail.com |
+        <i data-lucide="phone" class="inline-block ml-4 mr-2 align-middle"></i>+254729291438 |
+        <a class="underline hover:text-blue-400 transition duration-300" href="#"><i data-lucide="linkedin" class="inline-block mr-2 align-middle"></i>LinkedIn</a> |
+        <a class="underline hover:text-blue-400 transition duration-300" href="#"><i data-lucide="github" class="inline-block mr-2 align-middle"></i>Portfolio</a>
+      </p>
+    </header>
+    <hr class="my-12 border-gray-700">
+
+    <section id="experience" class="mb-16 full-height-section" data-aos="fade-up">
+      <h2 class="text-3xl font-bold border-b border-white pb-3 mb-8 uppercase flex items-center gap-3">
+        <i data-lucide="briefcase" class="text-blue-400"></i> Experience
+      </h2>
+      <div class="space-y-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center glass-card p-6 rounded-lg shadow-xl rellax" data-rellax-speed="0.5">
+          <img src="https://picsum.photos/400?1" class="w-full square-img border-2 border-gray-700" alt="Experience">
+          <div class="md:col-span-2">
+            <h3 class="font-semibold text-2xl text-blue-400">@iLabAfrica – IoT Intern <span class="text-base text-gray-400 block mt-1">(Jan 25 – Apr 30)</span></h3>
+            <ul class="list-disc ml-6 mt-4 text-lg text-gray-200">
+              <li><i data-lucide="cpu" class="inline-block mr-2 align-middle text-gray-500"></i>Developed real-world IoT solutions</li>
+              <li><i data-lucide="hard-drive" class="inline-block mr-2 align-middle text-gray-500"></i>Built and tested sensor-based systems</li>
+              <li><i data-lucide="lightbulb" class="inline-block mr-2 align-middle text-gray-500"></i>Collaborated on smart system prototypes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center glass-card p-6 rounded-lg shadow-xl rellax" data-rellax-speed="0.5">
+          <div class="md:col-span-2 md:order-first"> <h3 class="font-semibold text-2xl text-blue-400">Bluewave Insurance Agency – React Developer <span class="text-base text-gray-400 block mt-1">(Mar 24 – Apr 24)</span></h3>
+            <ul class="list-disc ml-6 mt-4 text-lg text-gray-200">
+              <li><i data-lucide="api" class="inline-block mr-2 align-middle text-gray-500"></i>Integrated RESTful APIs</li>
+              <li><i data-lucide="layout-dashboard" class="inline-block mr-2 align-middle text-gray-500"></i>Built analytics dashboards</li>
+            </ul>
+          </div>
+          <img src="https://picsum.photos/400?2" class="w-full square-img border-2 border-gray-700 md:order-last" alt="Experience"> </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center glass-card p-6 rounded-lg shadow-xl rellax" data-rellax-speed="0.5">
+          <img src="https://picsum.photos/400?3" class="w-full square-img border-2 border-gray-700" alt="Experience">
+          <div class="md:col-span-2">
+            <h3 class="font-semibold text-2xl text-blue-400">Render Health Technology – React Native Developer <span class="text-base text-gray-400 block mt-1">(Jan 23 – Jul 23)</span></h3>
+            <ul class="list-disc ml-6 mt-4 text-lg text-gray-200">
+              <li><i data-lucide="smartphone" class="inline-block mr-2 align-middle text-gray-500"></i>Built health loans app for iOS & Android</li>
+              <li><i data-lucide="bell" class="inline-block mr-2 align-middle text-gray-500"></i>Added push notifications and performance improvements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="my-12 border-gray-700">
+
+    <section id="education" class="mb-16 full-height-section" data-aos="fade-up" data-aos-delay="200">
+      <h2 class="text-3xl font-bold border-b border-white pb-3 mb-8 uppercase flex items-center gap-3">
+        <i data-lucide="graduation-cap" class="text-blue-400"></i> Education
+      </h2>
+      <div class="space-y-8">
+        <div class="glass-card p-6 rounded-lg shadow-xl rellax" data-rellax-speed="0.5">
+            <h3 class="font-semibold text-xl text-blue-400 flex items-center gap-2"><i data-lucide="university"></i>Strathmore University – Nairobi, Kenya <span class="text-base text-gray-400">(Jul 22 – Jul 26)</span></h3>
+            <p class="mt-2 text-lg text-gray-200">Current Mean: <span class="font-bold text-white">A</span></p>
+            <ul class="list-disc ml-6 text-base mt-2 text-gray-300">
+            <li><i data-lucide="award" class="inline-block mr-2 align-middle text-gray-500"></i>Certificate of Merit (Aug 2024)</li>
+            <li><i data-lucide="award" class="inline-block mr-2 align-middle text-gray-500"></i>Certificate of Excellence (Aug 2023)</li>
+            </ul>
+        </div>
+        <div class="glass-card p-6 rounded-lg shadow-xl rellax" data-rellax-speed="0.5">
+            <h3 class="font-semibold text-xl text-blue-400 flex items-center gap-2"><i data-lucide="school"></i>Utumishi Academy – Nakuru, Kenya <span class="text-base text-gray-400">(Jan 18 – Apr 22)</span></h3>
+            <p class="mt-2 text-lg text-gray-200">KCSE Mean Grade: <span class="font-bold text-white">A-</span></p>
+        </div>
+      </div>
+    </section>
+    <hr class="my-12 border-gray-700">
+
+    <section id="projects" class="mb-16 full-height-section" data-aos="fade-up" data-aos-delay="300">
+      <h2 class="text-3xl font-bold border-b border-white pb-3 mb-8 uppercase flex items-center gap-3">
+        <i data-lucide="folder-git-2" class="text-blue-400"></i> Projects
+      </h2>
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-disc ml-5 text-lg">
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="android" class="text-gray-500"></i>Jetpack Compose Turf App – <a href="#" class="underline text-blue-400 hover:text-blue-300 transition duration-300">Link</a></li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="code" class="text-gray-500"></i>CHIP-8 Emulator in C++ – <a href="#" class="underline text-blue-400 hover:text-blue-300 transition duration-300">Link</a></li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="server" class="text-gray-500"></i>Drug Dispensary API with JWT – <a href="#" class="underline text-blue-400 hover:text-blue-300 transition duration-300">Link</a></li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="message-square" class="text-gray-500"></i>Live Chat App with Firebase – <a href="#" class="underline text-blue-400 hover:text-blue-300 transition duration-300">Link</a></li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="zap" class="text-gray-500"></i>WebSocket Engine in Node.js – <a href="#" class="underline text-blue-400 hover:text-blue-300 transition duration-300">Link</a></li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="terminal" class="text-gray-500"></i>Terminal Text Editor in C – <a href="#" class="underline text-blue-400 hover:text-blue-300 transition duration-300">Link</a></li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="music" class="text-gray-500"></i>React Native Music Player – <a href="#" class="underline text-blue-400 hover:text-blue-300 transition duration-300">Link</a></li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="wrench" class="text-gray-500"></i>HandyMan App – <a href="#" class="underline text-blue-400 hover:text-blue-300 transition duration-300">Link</a></li>
+      </ul>
+    </section>
+    <hr class="my-12 border-gray-700">
+
+    <section id="certifications" class="mb-16 full-height-section" data-aos="fade-up" data-aos-delay="400">
+      <h2 class="text-3xl font-bold border-b border-white pb-3 mb-8 uppercase flex items-center gap-3">
+        <i data-lucide="award" class="text-blue-400"></i> Certifications
+      </h2>
+      <ul class="list-disc ml-6 text-lg space-y-3">
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="code" class="text-gray-500"></i>FreeCodeCamp: D3, Python, ML</li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="microsoft" class="text-gray-500"></i>Microsoft: Foundational C#</li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="network" class="text-gray-500"></i>Cisco: CCNA, IT Essentials</li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="book" class="text-gray-500"></i>Sololearn: JS, Java, Python, jQuery</li>
+      </ul>
+    </section>
+    <hr class="my-12 border-gray-700">
+
+    <section id="skills" class="mb-16 full-height-section" data-aos="fade-up" data-aos-delay="500">
+      <h2 class="text-3xl font-bold border-b border-white pb-3 mb-8 uppercase flex items-center gap-3">
+        <i data-lucide="code-square" class="text-blue-400"></i> Skills
+      </h2>
+      <ul class="columns-1 md:columns-2 lg:columns-3 list-disc ml-6 text-lg space-y-3">
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="git-fork" class="text-gray-500"></i>C++, C, Golang, JS, Python, C#</li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="react" class="text-gray-500"></i>React.js, Node.js, REST APIs</li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="smartphone" class="text-gray-500"></i>React Native, Jetpack Compose</li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="brain" class="text-gray-500"></i>TensorFlow, Pandas, Scikit-learn</li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="circuit-board" class="text-gray-500"></i>ESP32, Arduino, Raspberry Pi</li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="database" class="text-gray-500"></i>Firebase, MongoDB, PostgreSQL</li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="docker" class="text-gray-500"></i>Docker, Git, JWT, WebSockets</li>
+        <li class="glass-card p-4 rounded-lg shadow-md rellax text-gray-200 flex items-center gap-2" data-rellax-speed="0.2"><i data-lucide="users" class="text-gray-500"></i>Team Collaboration, Time Mgmt</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+    lucide.createIcons();
+
+    // Initialize Rellax
+    if (window.innerWidth > 768) { // Only enable parallax on larger screens for better performance
+        new Rellax('.rellax', {
+            speed: -2, // Default speed, can be overridden by data-rellax-speed
+            center: true,
+            round: true,
+            vertical: true,
+            horizontal: false
+        });
+    }
+
+
+    // Navbar active link logic
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.navbar-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150; // Adjust for navbar height and offset
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Initial check for active link on page load
+    window.dispatchEvent(new Event('scroll'));
+
+  </script>
+</body>
+</html>

@@ -1,11 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Amaumo Winstone Were – Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+    <style>
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(270deg, #1a1a1a, #0a0a0a, #000);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            color: #fff;
+            background-attachment: fixed;
+        }
+
+        .square-img {
+            border-radius: 0;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .square-img:hover {
+            transform: scale(1.03);
+        }
+
+        .navbar-glass {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-link.active {
+            color: #60A5FA;
+            /* Tailwind blue-400 */
+            font-weight: bold;
+            border-bottom: 2px solid #60A5FA;
+        }
+
+        .full-height-section {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 0;
+            position: relative;
+            /* Needed for absolute background elements */
+            overflow: hidden;
+            /* Hide overflow from parallax elements */
+        }
+
+        @media (max-width: 768px) {
+            .full-height-section {
+                min-height: auto;
+                padding: 2rem 0;
+            }
+        }
+
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Adjust order for alternating layout */
+        .md\:order-first {
+            order: -1;
+        }
+
+        .md\:order-last {
+            order: 1;
+        }
+
+        /* Hero section specific styles */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-background-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+            /* Ensure elements are in background */
+        }
+
+        .section-background-elements .shape {
+            position: absolute;
+            background-color: rgba(96, 165, 250, 0.05);
+            /* Blue-400 with more opacity */
+            border-radius: 50%;
+            filter: blur(40px);
+            /* Slightly less blur */
+            opacity: 0.6;
+            /* Slightly less opaque */
+        }
+
+        /* Specific shape sizes and positions for each section can be defined here or dynamically */
+        .section-background-elements .shape-small {
+            width: 150px;
+            height: 150px;
+        }
+
+        .section-background-elements .shape-medium {
+            width: 250px;
+            height: 250px;
+        }
+
+        .section-background-elements .shape-large {
+            width: 350px;
+            height: 350px;
+        }
+
+        /* Custom positions for shapes within sections */
+        #experience .shape-1 {
+            top: 15%;
+            left: 5%;
+        }
+
+        #experience .shape-2 {
+            bottom: 10%;
+            right: 10%;
+        }
+
+        #education .shape-1 {
+            top: 5%;
+            right: 15%;
+        }
+
+        #education .shape-2 {
+            bottom: 20%;
+            left: 10%;
+        }
+
+        #projects .shape-1 {
+            top: 20%;
+            left: 20%;
+        }
+
+        #projects .shape-2 {
+            bottom: 5%;
+            right: 5%;
+        }
+
+        #certifications .shape-1 {
+            top: 10%;
+            left: 10%;
+        }
+
+        #certifications .shape-2 {
+            bottom: 15%;
+            right: 20%;
+        }
+
+        #skills .shape-1 {
+            top: 25%;
+            right: 10%;
+        }
+
+        #skills .shape-2 {
+            bottom: 10%;
+            left: 15%;
+        }
+
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .animated-bg rect {
+            fill: rgba(59, 130, 246, 0.1);
+            stroke: rgba(59, 130, 246, 0.3);
+            stroke-width: 1;
+        }
+
+        .section-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-background-elements {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
-<body>
-    <p> Winstone Were Portfolio </p>
+
+<body class="bg-black text-white">
+    <nav class="fixed top-0 w-full z-50 py-4 navbar-glass shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 flex justify-center space-x-8">
+            <a href="#about"
+                class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">About</a>
+            <a href="#experience"
+                class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">Experience</a>
+            <a href="#education"
+                class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">Education</a>
+            <a href="#projects"
+                class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">Projects</a>
+            <a href="#certifications"
+                class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">Certifications</a>
+            <a href="#skills"
+                class="navbar-link text-white hover:text-blue-400 transition duration-300 px-3 py-2 rounded-md">Skills</a>
+        </div>
+    </nav>
+
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+
+        <section id="about" class="hero-section" data-aos="fade-in">
+            <!-- Animated SVG Background -->
+            <svg class="animated-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="none">
+                <rect id="sq1" x="20" y="50" width="40" height="40" />
+                <rect id="sq2" x="100" y="200" width="30" height="30" />
+                <rect id="sq3" x="200" y="100" width="50" height="50" />
+                <rect id="sq4" x="300" y="250" width="35" height="35" />
+                <rect id="sq5" x="400" y="70" width="60" height="60" />
+                <rect id="sq6" x="500" y="150" width="45" height="45" />
+                <rect id="sq7" x="600" y="220" width="30" height="30" />
+                <rect id="sq8" x="700" y="300" width="40" height="40" />
+                <rect id="sq9" x="800" y="80" width="55" height="55" />
+                <rect id="sq10" x="900" y="200" width="35" height="35" />
+                <rect id="sq11" x="1000" y="120" width="50" height="50" />
+                <rect id="sq12" x="1100" y="300" width="40" height="40" />
+                <rect id="sq13" x="50" y="400" width="30" height="30" />
+                <rect id="sq14" x="150" y="500" width="60" height="60" />
+                <rect id="sq15" x="250" y="450" width="45" height="45" />
+                <rect id="sq16" x="350" y="550" width="35" height="35" />
+                <rect id="sq17" x="450" y="380" width="50" height="50" />
+                <rect id="sq18" x="550" y="480" width="40" height="40" />
+                <rect id="sq19" x="650" y="400" width="30" height="30" />
+                <rect id="sq20" x="750" y="520" width="60" height="60" />
+                <rect id="sq21" x="850" y="430" width="45" height="45" />
+                <rect id="sq22" x="950" y="600" width="35" height="35" />
+                <rect id="sq23" x="1050" y="500" width="50" height="50" />
+                <rect id="sq24" x="1150" y="650" width="40" height="40" />
+              </svg>
+              
+
+            <!-- Parallax Background Elements -->
+            <div class="section-background-elements">
+                <div class="shape shape-large rellax" data-rellax-speed="-3" style="top: 10%; left: 10%;"></div>
+                <div class="shape shape-medium rellax" data-rellax-speed="2" style="bottom: 20%; right: 15%;"></div>
+                <div class="shape shape-small rellax" data-rellax-speed="-1" style="top: 40%; right: 5%;"></div>
+                <div class="shape shape-large rellax" data-rellax-speed="1" style="bottom: 5%; left: 5%;"></div>
+            </div>
+
+            <!-- Hero Text Content -->
+            <div class="section-content hero-text-container">
+                <h1 class="text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-blue-400 mb-6 leading-tight rellax"
+                    data-rellax-speed="2">
+                    Amaumo Winstone Were
+                </h1>
+                <p class="text-2xl md:text-3xl text-gray-200 mb-8 max-w-3xl mx-auto rellax" data-rellax-speed="1.5">
+                    Innovating at the intersection of <strong>IoT, Web, and Mobile Development</strong>. Crafting robust
+                    and
+                    intelligent solutions with a passion for cutting-edge technology.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6 text-xl mb-12 rellax" data-rellax-speed="1">
+                    <a href="mailto:stoniedev@gmail.com"
+                        class="flex items-center text-white hover:text-blue-400 transition duration-300">
+                        <i data-lucide="mail" class="w-6 h-6 mr-2"></i> stoniedev@gmail.com
+                    </a>
+                    <a href="tel:+254729291438"
+                        class="flex items-center text-white hover:text-blue-400 transition duration-300">
+                        <i data-lucide="phone" class="w-6 h-6 mr-2"></i> +254729291438
+                    </a>
+                    <a href="#" class="flex items-center text-white hover:text-blue-400 transition duration-300"
+                        target="_blank" rel="noopener noreferrer">
+                        <i data-lucide="linkedin" class="w-6 h-6 mr-2"></i> LinkedIn
+                    </a>
+                    <a href="#" class="flex items-center text-white hover:text-blue-400 transition duration-300"
+                        target="_blank" rel="noopener noreferrer">
+                        <i data-lucide="github" class="w-6 h-6 mr-2"></i> GitHub
+                    </a>
+                </div>
+                <a href="#experience"
+                    class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg rellax"
+                    data-rellax-speed="0.5">
+                    Explore My Work <i data-lucide="arrow-down" class="w-5 h-5 ml-2"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            delay: 100,
+        });
+        lucide.createIcons();
+
+        // Initialize Rellax for all elements with the 'rellax' class
+        if (window.innerWidth > 768) {
+            new Rellax('.rellax', {
+                speed: -2,
+                center: true,
+                round: true,
+                vertical: true,
+                horizontal: false
+            });
+        }
+
+        const squareIDs = ["sq1", "sq2", "sq3", "sq4", "sq5", "sq6", "sq7", "sq8", "sq9", "sq10"];
+
+        squareIDs.forEach((id, index) => {
+            anime({
+                targets: `#${id}`,
+                translateY: [
+                    { value: -20, duration: 2000 },
+                    { value: 20, duration: 2000 }
+                ],
+                easing: "easeInOutSine",
+                direction: "alternate",
+                loop: true,
+                delay: index * 200
+            });
+        });
+        // Navbar active link logic
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar-link');
+        const nav = document.querySelector('nav'); // Get the navbar element once
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - nav.offsetHeight - 50; // Adjust for navbar height and a small buffer
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = sectionId;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Initial check for active link on page load
+        window.dispatchEvent(new Event('scroll'));
+
+    </script>
 </body>
+
 </html>
